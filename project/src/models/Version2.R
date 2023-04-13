@@ -27,7 +27,9 @@ ggplot(pca_dt,aes(x=PC1,y=PC2))+geom_point()
 
 set.seed(3)
 
-tsne<-Rtsne(pca_dt,pca = T,perplexity=20, check_duplicates = F)
+#Tried perplexity = 20, and 70. 20  Score a 3.2
+
+tsne<-Rtsne(pca_dt,pca = T,perplexity=25, check_duplicates = F)
 
 tsne_dt<-data.table(tsne$Y)
 
@@ -83,7 +85,7 @@ ggplot(tsne_dt,aes(x=V1,y=V2,col=Cluster_2_prob))+geom_point()
 ggplot(tsne_dt,aes(x=V1,y=V2,col=Cluster_3_prob))+geom_point()
 ggplot(tsne_dt,aes(x=V1,y=V2,col=Cluster_4_prob))+geom_point()
 
-fwrite(final,"./project/volume/data/processed/wtfisthiscode2.csv") 
+fwrite(subfile,"./project/volume/data/processed/idk.csv") 
 
 
 
